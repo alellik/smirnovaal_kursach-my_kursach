@@ -1,0 +1,317 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1719158681245-1
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: cinema_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1719158681245-2
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: comment_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1719158681245-3
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: director_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1719158681245-4
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: like_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1719158681245-5
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: screenwriter_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1719158681245-6
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: user_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1719158681245-7
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: user_role_id_seq
+            startValue: 1
+  - changeSet:
+      id: 1719158681245-8
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_cinemas
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: director_id
+                  type: BIGINT
+              - column:
+                  name: screenwriter_id
+                  type: BIGINT
+              - column:
+                  name: cinema_name
+                  type: VARCHAR(255)
+              - column:
+                  name: cinema_desc
+                  type: VARCHAR(255)
+              - column:
+                  name: cinema_type
+                  type: VARCHAR(255)
+              - column:
+                  name: number_actors
+                  type: INT
+              - column:
+                  name: like_score
+                  type: DOUBLE
+            tableName: cinemas
+  - changeSet:
+      id: 1719158681245-9
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_comments
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: cinema_id
+                  type: BIGINT
+              - column:
+                  name: text_of_comment
+                  type: VARCHAR(255)
+              - column:
+                  name: date_of_comment
+                  type: DATETIME
+            tableName: comments
+  - changeSet:
+      id: 1719158681245-10
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_directors
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name_director
+                  type: VARCHAR(255)
+              - column:
+                  name: surname_director
+                  type: VARCHAR(255)
+            tableName: directors
+  - changeSet:
+      id: 1719158681245-11
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_likes
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: cinema_id
+                  type: BIGINT
+              - column:
+                  name: user_id
+                  type: BIGINT
+              - column:
+                  name: value_of_like
+                  type: INT
+              - column:
+                  name: date_of_like
+                  type: DATETIME
+            tableName: likes
+  - changeSet:
+      id: 1719158681245-12
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_screenwriters
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name_screenwriter
+                  type: VARCHAR(255)
+              - column:
+                  name: surname_screenwriter
+                  type: VARCHAR(255)
+            tableName: screenwriters
+  - changeSet:
+      id: 1719158681245-13
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_user_roles
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: user_authority
+                  type: SMALLINT
+              - column:
+                  name: user_id
+                  type: BIGINT
+            tableName: user_roles
+  - changeSet:
+      id: 1719158681245-14
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_users
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: enabled
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: expired
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: locked
+                  type: BOOLEAN
+            tableName: users
+  - changeSet:
+      id: 1719158681245-15
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: director_id
+            baseTableName: cinemas
+            constraintName: FK_CINEMAS_ON_DIRECTOR
+            referencedColumnNames: id
+            referencedTableName: directors
+  - changeSet:
+      id: 1719158681245-16
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: screenwriter_id
+            baseTableName: cinemas
+            constraintName: FK_CINEMAS_ON_SCREENWRITER
+            referencedColumnNames: id
+            referencedTableName: screenwriters
+  - changeSet:
+      id: 1719158681245-17
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: cinema_id
+            baseTableName: comments
+            constraintName: FK_COMMENTS_ON_CINEMA
+            referencedColumnNames: id
+            referencedTableName: cinemas
+  - changeSet:
+      id: 1719158681245-18
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: cinema_id
+            baseTableName: likes
+            constraintName: FK_LIKES_ON_CINEMA
+            referencedColumnNames: id
+            referencedTableName: cinemas
+  - changeSet:
+      id: 1719158681245-19
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: likes
+            constraintName: FK_LIKES_ON_USER
+            referencedColumnNames: id
+            referencedTableName: users
+  - changeSet:
+      id: 1719158681245-20
+      author: ??? (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id
+            baseTableName: user_roles
+            constraintName: FK_USER_ROLES_ON_USER
+            referencedColumnNames: id
+            referencedTableName: users
+
